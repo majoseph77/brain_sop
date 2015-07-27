@@ -1,0 +1,11 @@
+<h3>Register!</h3>
+
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.text_field :firstName %>
+  <%= f.text_field :lastName %>
+  <%= f.email_field :email %>
+  <%= f.text_field :userName %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation, label: "Confirm Password" %>
+  <%= f.submit "Register" %>
+<% end %>

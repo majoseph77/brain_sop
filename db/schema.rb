@@ -11,54 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727162408) do
+ActiveRecord::Schema.define(version: 20150727191414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string   "course_name"
-    t.integer  "num_chapter"
+    t.string   "title"
+    t.text     "section_name"
+    t.integer  "num_sections"
+    t.integer  "user_id"
     t.integer  "section_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.integer  "style_id"
-    t.integer  "user_id"
-    t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string   "topic"
+    t.string   "name"
+    t.string   "quiz"
     t.string   "video_uri"
-    t.text     "vocab"
-    t.text     "quiz"
     t.integer  "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "styles", force: :cascade do |t|
-    t.text     "learning_style"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "firstName"
     t.string   "lastName"
-    t.string   "username"
     t.string   "email"
+    t.string   "userName"
+    t.string   "password"
+    t.string   "password_confirmation"
     t.string   "password_digest"
+    t.string   "learningStyle"
     t.integer  "course_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "vocabulary_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "vocabularies", force: :cascade do |t|
+    t.string   "word"
+    t.string   "definition"
+    t.string   "topic"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

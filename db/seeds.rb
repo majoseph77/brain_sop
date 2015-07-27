@@ -6,3 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+bio = Course.create(:title => 'Biology', :num_sections => 43, :section_name => 'The Cell')
+
+cell = Section.create(:name => 'The Cell', :quiz => '1. What are the three basics of a cell?', :video_uri => 'W7cO2UKCrgY')
+carbon = Section.create(:name => 'Carbon', :quiz => '1. Question', :video_uri => 'dDBU0lg-HYE')
+
+
+
+binding.pry
+
+bio.sections << carbon
+
