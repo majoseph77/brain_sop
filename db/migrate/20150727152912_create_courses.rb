@@ -4,6 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :course_name
       t.integer :num_chapter
       t.integer :section_id
+      t.integer :user_id
 
 
       t.timestamps null: false
