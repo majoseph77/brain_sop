@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :courses
 
   get '/users/profile', to: 'users#show'
+  get '/sessions/new',  to: 'sessions#new'
 
 
 
