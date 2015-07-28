@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  resources :users, only: [:new, :create, :edit]
+  resources :users, only: [:new, :create, :edit, :show]
   resource :session, only: [:new, :create, :destroy]
   resources :courses
 
