@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(params[:userName])
+    current_user = User.find_by(params[:userName])
   end
 
 private
@@ -27,7 +28,8 @@ private
       :email,
       :userName,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :user_id
     )
   end
 end

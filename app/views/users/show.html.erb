@@ -20,14 +20,13 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-      <li><a href="sessions#destroy", method: :delete >Logout</a></li>
+     <%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%>
     </ul>
 
-    <% end %>
+
   </div><!-- /.navbar-collapse -->
 </nav>
- <h2>Hello <%= @user.userName %>!</h2>
+ <h2>Hello <%= @user.firstName %>!</h2>
 <div class='container'>
   <div class ='side-bar'>
     <ul>
