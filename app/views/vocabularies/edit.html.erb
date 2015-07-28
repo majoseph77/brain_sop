@@ -1,2 +1,11 @@
 <h1>Vocabularies#edit</h1>
 
+<% @vocabularies.each do |vocab| %>
+<%= bootstrap_form_for @vocabulary do |f| %>
+  <%= f.text_field :word %>
+  <%= f.text_field :definition %>
+  <%= f.text_field :topic %>
+  <%= f.submit "Edit word" %>
+  <% end %>
+<% end %>
+

@@ -17,14 +17,24 @@ class VocabulariesController < ApplicationController
     end
   end
 
+  def edit
+    @vocabularies = Vocabulary.all
+    @vocabulary = Vocabulary.find_by(params[:word])
+  end
+
+  def update
+   respond_to do |format|
+    if @vocabulary.update(vocabulary_params)
+    render action: "edit"
+    else
+      redirect_to vocabularies_path(@vocabulary)
+   end
+  end
+
   def show
     @vocabulary = Vocabulary.find_by(params[:word])
   end
 
-
-  def edit
-    @vocabulary = Vocabulary.find_by(params[:word])
-  end
 
   def destroy
   end
@@ -37,5 +47,6 @@ class VocabulariesController < ApplicationController
       :topic
       )
   end
+end
 end
 
