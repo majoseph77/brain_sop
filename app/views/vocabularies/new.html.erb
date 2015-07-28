@@ -1,0 +1,8 @@
+<h1>Make Your own Vocabulary List</h1>
+
+<%= bootstrap_form_for Vocabulary.new do |f| %>
+  <%= f.text_field :word %>
+  <%= f.text_field :definition %>
+  <%= f.text_field :topic %>
+  <%= f.submit "Add word" %>
+<% end %>

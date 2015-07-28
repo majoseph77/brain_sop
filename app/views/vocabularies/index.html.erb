@@ -1,0 +1,7 @@
+<h1>Vocabularies#index</h1>
+
+<% @vocabularies.each do |vocabulary| %>
+<h2><a href="/vocabularies/index<%=vocabulary.word%>"><%= vocabulary.word %></a></h2>
+<h4>Defintion: <%= vocabulary.definition %></h4>
+<% end %>
+
