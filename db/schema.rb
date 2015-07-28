@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150727191414) do
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "password_digest"
-    t.string   "learningStyle"
+    t.string   "determineStyle"
     t.integer  "course_id"
     t.integer  "vocabulary_id"
     t.datetime "created_at",            null: false

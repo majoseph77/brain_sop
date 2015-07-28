@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit]
   resource :session, only: [:new, :create, :destroy]
 
-  get '/users/results', to: 'users#show'
+  get '/users/profile', to: 'users#show'
 
 
 
