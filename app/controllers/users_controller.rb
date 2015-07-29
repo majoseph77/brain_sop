@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authenticate, :except => [:new, :create]
 
   def new
     @user = User.new
@@ -14,11 +15,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:userName])
-    current_user = User.find_by(params[:userName])
+    @user = User.find_by(params[:email])
   end
 
   private
+
+    def authenticate
+    unless logged_in?
+      flash.now.alert =
+        "You must be logged in to access this section of the site."
+      redirect_to login_path
+    end
+  end
   def user_params
     params.require(:user).permit(
       :firstName,

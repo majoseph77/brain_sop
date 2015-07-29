@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'welcome#home'
 
   resources :users do
@@ -20,6 +19,6 @@ Rails.application.routes.draw do
   get '/users/profile', to: 'users#show'
   get '/sessions/new',  to: 'sessions#new'
   delete '/session', to: 'sessions#destroy'
-
+  delete '/vocabularies', to: 'vocabularies#destroy'
 
 end

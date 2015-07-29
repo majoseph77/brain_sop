@@ -24,10 +24,8 @@ class VocabulariesController < ApplicationController
 
   def update
     @vocabulary = Vocabulary.find(params[:id])
-    @vocabulary.update_attributes(vocabulary_params)
-    else
+    @vocabulary.update_attributes(params[:id])
       redirect_to vocabularies_path(@vocabulary)
-   end
   end
 
   def show
@@ -36,16 +34,16 @@ class VocabulariesController < ApplicationController
 
 
   def destroy
-    @vocabulary = Vocabulary.find(params[:id]).destroy
+    vocabulary = Vocabulary.find_by(params[:id])
+    vocabulary.destroy
     redirect_to vocabularies_path(@vocabulary)
   end
 
-  private
-
+private
   def vocabulary_params
-    params.require(:vocabulary).permit(
-      :word,
-      :definition,
-      :topic
+    params.require(:vocabulary).permit(:word, :definition,:topic
       )
+  end
 end
+
+

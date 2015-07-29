@@ -1,40 +1,28 @@
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">BrainSop</a>
-  </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-
-      <li><a href="/">Home</a></li>
-      <li><a href="/">About Us</a></li>
-      <li><a href="/courses/index">Courses</a></li>
-    </ul>
-
     <ul class="nav navbar-nav navbar-right">
-     <%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%>
+    <li><a href="/sessions/new">Help</a></li>
+    <li> <%= link_to "Logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%></li>
     </ul>
 
 
   </div><!-- /.navbar-collapse -->
 </nav>
- <h2>Hello <%= @user.firstName %>!</h2>
+
+
+
 <div class='container'>
-  <div class ='side-bar'>
+  <h2>Hello <%= current_user.firstName %>!</h2>
+  <div class ='left-side-bar'>
     <ul>
       <li>
-        Learning Style: <%= @user.learningStyle %>
+        Learning Style: <%= current_user.learningStyle %>
       </li>
       <li>
-      Courses: <%= @user.course_id%>
+      Courses: <%=current_user.course_id%>
+      </li>
+       <li>
+      Sections: <%= @user.course_id%>
       </li>
       <li>
         Videos:
@@ -43,4 +31,7 @@
         <li><a href="/vocabularies/new">Add Vocabulary</a></li>
     </ul>
   </div>
+
+</div>
+<div class = 'content view'>
 </div>

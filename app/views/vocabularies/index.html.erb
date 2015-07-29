@@ -1,20 +1,19 @@
 <h1>Your Vocab words</h1>
 
   <% @vocabularies.each do |vocabulary| %>
-    <li>
+
       <em>
-        <a href="/vocabularies/<%= vocabulary.id%>"><%= vocabulary.word %></a>
+        <a href="/vocabularies<%= vocabulary.id%>"><%= vocabulary.word %></a>
       </em>
 
-      <a href="/vocabularies/<%= vocabulary.id%>/edit">
+      <a href="/vocabularies<%= vocabulary.id%>/edit">
         Edit
       </a>
 
       <form class="delete" id="delete-vocabulary" method="POST" action="vocabularies#desroy<%= vocabulary.id %>">
-        <input class="delete" type="hidden" name = "_method" method="DESTROY" value="DESTROY">
-        <input type="submit" value="Delete Word" />
+        <%= link_to "Delete", vocabularies_path, method: :delete %>
       </form>
-    </li>
+
     <% end %>
 </ul>
 
@@ -22,3 +21,4 @@
 </div>
 
 <a href="/users/show"  class="btn btn-primary btn-lg">Back To Profile</a>
+
