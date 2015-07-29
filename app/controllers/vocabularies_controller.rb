@@ -23,9 +23,9 @@ class VocabulariesController < ApplicationController
   end
 
   def update
-   respond_to do |format|
-    if @vocabulary.update(vocabulary_params)
-    render action: "edit"
+    @vocabularies = Vocabulary.all
+    @vocabulary = Vocabulary.find_by(vocabulary_params)
+    @vocabularies.update_all(vocabulary_params)
     else
       redirect_to vocabularies_path(@vocabulary)
    end
@@ -46,7 +46,5 @@ class VocabulariesController < ApplicationController
       :definition,
       :topic
       )
-  end
-end
-end
 
+end

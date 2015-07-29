@@ -1,7 +1,7 @@
 <h1>Vocabularies#edit</h1>
 
 <% @vocabularies.each do |vocab| %>
-<%= bootstrap_form_for @vocabulary do |f| %>
+<%= bootstrap_form_for @vocabularies do |f| %>
   <%= f.text_field :word %>
   <%= f.text_field :definition %>
   <%= f.text_field :topic %>
