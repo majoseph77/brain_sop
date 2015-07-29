@@ -1,8 +1,24 @@
 <h1>Your Vocab words</h1>
 
-<% @vocabularies.each do |vocabulary| %>
-<h2><a href="/vocabularies/index<%=vocabulary.word%>"><%= vocabulary.word %></a></h2>
-<h4>Defintion: <%= vocabulary.definition %></h4>
-<% end %>
+  <% @vocabularies.each do |vocabulary| %>
+    <li>
+      <em>
+        <a href="/vocabularies/<%= vocabulary.id%>"><%= vocabulary.word %></a>
+      </em>
+
+      <a href="/vocabularies/<%= vocabulary.id%>/edit">
+        Edit
+      </a>
+
+      <form class="delete" id="delete-vocabulary" method="POST" action="/vocabularies/<%= vocabulary.id %>">
+        <input class="delete" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Word" />
+      </form>
+    </li>
+    <% end %>
+</ul>
+
+<a class"btn" href="/vocabularies/new">Add Word</a>
+</div>
 
 <a href="/users/show"  class="btn btn-primary btn-lg">Back To Profile</a>

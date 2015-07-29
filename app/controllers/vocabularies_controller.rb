@@ -36,6 +36,7 @@ class VocabulariesController < ApplicationController
 
 
   def destroy
+
   end
 
   private
