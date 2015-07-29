@@ -10,8 +10,8 @@
         Edit
       </a>
 
-      <form class="delete" id="delete-vocabulary" method="POST" action="/vocabularies/<%= vocabulary.id %>">
-        <input class="delete" type="hidden" name="_method" value="DELETE">
+      <form class="delete" id="delete-vocabulary" method="POST" action="vocabularies#desroy<%= vocabulary.id %>">
+        <input class="delete" type="hidden" name = "_method" method="DESTROY" value="DESTROY">
         <input type="submit" value="Delete Word" />
       </form>
     </li>

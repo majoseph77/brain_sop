@@ -1,6 +1,4 @@
 
-<!--//Hide this script from old browsers. Else it will show up in the display window! Probably not even needed anymore. But I ramble.
-
   var auditoryPoints = 0;
   var visualPoints = 0;
   var tactilePoints = 0;
@@ -102,7 +100,6 @@ function openDialog() {
 
     info = "<P><B><H2>Your Learning Styles Inventory Results</H2></B></P>" + "<P><BIG><B>Based on your input, you are a(n): <B>" + style + "</B> learner.</P><P></P></B></BIG></P>" + info;
 
-
   if(answeredAllQuestions == 0) {
      info = "You must answer all statements for an accurate interpretation of your learning style. Try again."
      style = "UNKNOWN"
@@ -111,6 +108,4 @@ function openDialog() {
   document.getElementById('results').innerHTML = info; //Display updated info at the bottom of the page.
   window.location.hash="ShowResults"; //Scroll the window to show the results.
 
-
-<!-- done hiding -->
 }

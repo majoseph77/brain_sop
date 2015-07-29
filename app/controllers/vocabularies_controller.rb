@@ -36,15 +36,16 @@ class VocabulariesController < ApplicationController
 
 
   def destroy
-
+    @vocabulary = Vocabulary.find(params[:id]).destroy
+    redirect_to vocabularies_path(@vocabulary)
   end
 
   private
+
   def vocabulary_params
     params.require(:vocabulary).permit(
       :word,
       :definition,
       :topic
       )
-
 end

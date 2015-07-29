@@ -31,20 +31,16 @@
   <div class ='side-bar'>
     <ul>
       <li>
-        Learning Style: <%= @user.determineStyle %>
+        Learning Style: <%= @user.learningStyle %>
       </li>
       <li>
-        Courses: <%= @user.course_id %>
-      </li>
-      <li>
-        Vocabulary:
+      Courses: <%= @user.course_id%>
       </li>
       <li>
         Videos:
       </li>
-      <li>
+        <li><a href="/vocabularies/">All Vocabulary</a></li>
         <li><a href="/vocabularies/new">Add Vocabulary</a></li>
-      </li>
     </ul>
   </div>
 </div>
