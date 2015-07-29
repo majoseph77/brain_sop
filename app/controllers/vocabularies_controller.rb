@@ -23,9 +23,8 @@ class VocabulariesController < ApplicationController
   end
 
   def update
-    @vocabularies = Vocabulary.all
-    @vocabulary = Vocabulary.find_by(vocabulary_params)
-    @vocabularies.update_all(vocabulary_params)
+    @vocabulary = Vocabulary.find(params[:id])
+    @vocabulary.update_attributes(vocabulary_params)
     else
       redirect_to vocabularies_path(@vocabulary)
    end
