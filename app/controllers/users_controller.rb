@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate, :except => [:new, :create, :update]
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
 
   def new
     @user = User.new
@@ -13,6 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to edit_user_path(@user)
     else
       render "new"
@@ -20,19 +17,25 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.last
     @user = User.find_by(params[:learningStyle])
   end
 
   def update
-    @user = current_user
-    @user = User.find_by(params[:learningStyle])
+    @user = User.find(params[:id])
     @user.update_attributes(user_params)
     redirect_to courses_path
   end
 
   def show
      @user = User.find_by(params[:email])
+  end
+
+  def add_course
+    course = Course.find(params[:id])
+    puts current_user
+    current_user.courses << course
+    redirect_to '/courses/show'
   end
 
 

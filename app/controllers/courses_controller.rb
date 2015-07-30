@@ -4,6 +4,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @courses = Course.find_by(params[:title])
+    @course = Course.find(current_user.courses.last.id)
   end
 end

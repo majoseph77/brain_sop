@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/about', to: 'welcome#about'
   get '/users/profile', to: 'users#show'
   get '/sessions/new',  to: 'sessions#new'
+  get '/users/add_course/:id', to: 'users#add_course'
   delete '/session', to: 'sessions#destroy'
   delete '/vocabularies', to: 'vocabularies#destroy'
 
