@@ -14,14 +14,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    user = current_user
-   if  @user.update_attributes(user_params)
-    redirect_to root_path
-   else
-    render :edit
-   end
+  def edit
+    @user = current_user
+    @user = User.find_by(params[:learningStyle])
+  end
 
+  def update
+    @user = User.find_by(params[:learningStyle])
+    @user.update_attributes(user_params)
+    redirect_to root_path
   end
 
   def show
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
   end
   def user_params
     params.require(:user).permit(
+      :id,
       :firstName,
       :lastName,
       :email,

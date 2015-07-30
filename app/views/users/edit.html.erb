@@ -377,7 +377,7 @@
 
 </div> <!-- Container -->
 
-<%= form_for User.update do |f| %>
+<%= form_for @user do |f| %>
 <div>
   <%= f.label :learningStyle %>
   <%= f.text_area :learningStyle, :value => 'learnMethod', :id => 'learnMethod' %>

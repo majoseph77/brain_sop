@@ -108,7 +108,7 @@ function openDialog() {
   window.location.hash="ShowResults"; //Scroll the window to show the results.
 var learningStyle;
 console.log(style);
-
+//gets users learning style and assigns it to a variable that can be updated with rals
 document.getElementById('learnMethod').innerHTML
 = style;
 
