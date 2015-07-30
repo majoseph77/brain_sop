@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#home'
-
+  resources :welcome, only: [:about, :home]
   resources :users do
     resources :courses
   end
@@ -15,10 +15,12 @@ Rails.application.routes.draw do
   resources :vocabularies do
     resources :users
   end
-
+  patch '/users', to: 'users#update', as: :update
+  get '/about', to: 'welcome#about'
   get '/users/profile', to: 'users#show'
   get '/sessions/new',  to: 'sessions#new'
   delete '/session', to: 'sessions#destroy'
   delete '/vocabularies', to: 'vocabularies#destroy'
+
 
 end

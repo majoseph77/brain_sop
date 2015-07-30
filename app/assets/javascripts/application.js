@@ -19,4 +19,9 @@
 // = require jquery_nested_form
 
 
-
+$("h1").click(function(){
+    var div = $("h1");
+    div.animate({left: '100px'}, "slow");
+    div.animate({height: '50px', opacity: '0.4'}, "slow");
+    div.animate({fontSize: '3em'}, "slow");
+});

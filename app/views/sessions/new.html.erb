@@ -1,13 +1,19 @@
-<h3>Enter log in information here.</h3>
 
-<%= form_tag session_path do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>
+<div class="jumbotron">
+  <div class="container">
+    <img src="https://www.thinkbio.guru/tBioWordPress/wp-content/uploads/2015/05/Depositphotos_30213689_xs.jpg" class="img-rounded, center-block" alt="Cinque Terre" width="304" height="236"/>
+
+    <div class = 'login-form'>
+    <%= form_tag session_path do %>
+    <div class="field">
+      <%= label_tag       :email    %>
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Log in" %></div>
+  <% end %>
+    </div>
+    </div>

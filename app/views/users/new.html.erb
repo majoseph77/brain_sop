@@ -1,5 +1,10 @@
-<h3>Register!</h3>
 
+<div class = 'register'>
+<div class = 'form-top-left'>
+  <h3>Register!</h3>
+  <p> Fill in the form to begin customizing<br> your learning today</p>
+</div>
+<div class ='form-bottom'>
 <%= bootstrap_form_for(@user) do |f| %>
   <%= f.text_field :firstName %>
   <%= f.text_field :lastName %>
@@ -9,4 +14,7 @@
   <%= f.password_field :password_confirmation, label: "Confirm Password" %>
   <%= f.submit "Register" %>
 <% end %>
+</div>
+
+
 

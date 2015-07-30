@@ -1,18 +1,29 @@
-<h1>Your Vocab words</h1>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="/sessions/new">Help</a></li>
+    <li> <%= link_to "Logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%></li>
+    </ul>
+<h3>Your Vocabulary Words</h3>
+<div></div>
 
+<div class='all-vocab-words'>
   <% @vocabularies.each do |vocabulary| %>
+      <div class= 'word'>
+        <a href="/vocabularies<%= vocabulary.id%>"><%= vocabulary.word.upcase! %></a>
+      </div>
+       <div class= 'definition'>
+        <a href="/vocabularies<%= vocabulary.id%>"><%= vocabulary.definition.downcase %></a>
+      </div>
 
-      <em>
-        <a href="/vocabularies<%= vocabulary.id%>"><%= vocabulary.word %></a>
-      </em>
-
+      <div class = 'edit-word'>
       <a href="/vocabularies<%= vocabulary.id%>/edit">
         Edit
       </a>
-
+            <div class= 'delete-word'>
       <form class="delete" id="delete-vocabulary" method="POST" action="vocabularies#desroy<%= vocabulary.id %>">
         <%= link_to "Delete", vocabularies_path, method: :delete %>
       </form>
+      </div>
+      </div>
 
     <% end %>
 </ul>
@@ -22,3 +33,4 @@
 
 <a href="/users/show"  class="btn btn-primary btn-lg">Back To Profile</a>
 
+</div>

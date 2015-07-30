@@ -78,7 +78,6 @@ function determineStyle() {
 
 
 
-
 function openDialog() {
    var info = ""
    var style = ""
@@ -107,5 +106,11 @@ function openDialog() {
 
   document.getElementById('results').innerHTML = info; //Display updated info at the bottom of the page.
   window.location.hash="ShowResults"; //Scroll the window to show the results.
+var learningStyle;
+console.log(style);
+
+document.getElementById('learnMethod').innerHTML
+= style;
 
 }
+

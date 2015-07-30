@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate, :except => [:new, :create]
+    skip_before_action :authenticate, :except => [:new, :create, :update]
 
   def new
     @user = User.new
@@ -12,6 +12,16 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def update
+    user = current_user
+   if  @user.update_attributes(user_params)
+    redirect_to root_path
+   else
+    render :edit
+   end
+
   end
 
   def show
@@ -32,6 +42,7 @@ class UsersController < ApplicationController
       :firstName,
       :lastName,
       :email,
+      :learningStyle,
       :userName,
       :password,
       :password_confirmation,

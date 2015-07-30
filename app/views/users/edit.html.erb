@@ -335,6 +335,8 @@
 <input name="Determine Style" type="button" value="Determine Style" onClick="determineStyle()"/>
 </form>
 
+
+
 </div> <!-- End of Questions -->
 
 <hr>
@@ -361,6 +363,7 @@
 
 </div> <!-- Results -->
 
+
  <a href="/courses/"  class="btn btn-primary btn-lg">Select A course</a>
 <div id="footer">
 
@@ -373,6 +376,14 @@
 
 
 </div> <!-- Container -->
+
+<%= form_for User.update do |f| %>
+<div>
+  <%= f.label :learningStyle %>
+  <%= f.text_area :learningStyle, :value => 'learnMethod', :id => 'learnMethod' %>
+  <%= f.submit %>
+</div>
+<% end %>
 
 <script language="JavaScript" src="/quiz.js" type="text/javascript"></script>
 </body>
