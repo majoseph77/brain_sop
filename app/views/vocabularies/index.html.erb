@@ -15,7 +15,7 @@
       </div>
 
       <div class = 'edit-word'>
-      <a href="/vocabularies<%= vocabulary.id%>/edit">
+    <a href="/vocabularies/<%= vocabulary.id%>/edit">
         Edit
       </a>
             <div class= 'delete-word'>
@@ -27,8 +27,7 @@
 
     <% end %>
 </ul>
-
-<a class"btn" href="/vocabularies/new">Add Word</a>
+<a href="/vocabularies/new"  class="btn btn-primary btn-lg">Add A New Word</a>
 </div>
 
 <a href="/users/show"  class="btn btn-primary btn-lg">Back To Profile</a>

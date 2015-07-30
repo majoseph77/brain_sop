@@ -17,14 +17,14 @@ class VocabulariesController < ApplicationController
     end
   end
 
-  def edit
+   def edit
     @vocabularies = Vocabulary.all
     @vocabulary = Vocabulary.find_by(params[:word])
   end
 
   def update
     @vocabulary = Vocabulary.find(params[:id])
-    @vocabulary.update_attributes(params[:id])
+    @vocabulary.update_attributes(vocabulary_params)
       redirect_to vocabularies_path(@vocabulary)
   end
 

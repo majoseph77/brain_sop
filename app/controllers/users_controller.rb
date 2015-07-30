@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate, :except => [:new, :create, :update]
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+
   def new
     @user = User.new
   end
@@ -20,17 +25,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
     @user = User.find_by(params[:learningStyle])
     @user.update_attributes(user_params)
-    redirect_to root_path
+    redirect_to courses_path
   end
 
   def show
-    @user = User.find_by(params[:email])
+     @user = User.find_by(params[:email])
   end
 
-  private
 
+  private
     def authenticate
     unless logged_in?
       flash.now.alert =
@@ -38,17 +44,9 @@ class UsersController < ApplicationController
       redirect_to login_path
     end
   end
+
   def user_params
-    params.require(:user).permit(
-      :id,
-      :firstName,
-      :lastName,
-      :email,
-      :learningStyle,
-      :userName,
-      :password,
-      :password_confirmation,
-      :user_id
+    params.require(:user).permit(:id,:firstName,:lastName,:email,:learningStyle,:userName,:password,:password_confirmation,:user_id
     )
-  end
+ end
 end
