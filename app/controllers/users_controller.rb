@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate, :except => [:new, :create, :update]
+    skip_before_action :authenticate, :except => [:new, :create, :update, :edit]
 
 
   def new
