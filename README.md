@@ -23,6 +23,20 @@ comprehension and test scores.
 2. Bundle install
 3. Branch feature to make changes
 
+##MVP
+- As a user I want to be able to register or sign in
+- As a user I want my learning style to be determined
+- As a user I want a profile page for my learning style with access to study material
+- As a user I want to choose my own course
+- As a user I want to add, edit, and delete my vocabulary words.
+
+## Icebox/ Future Features
+- Live chat option for tutoring
+- Auditory and Visual learning modules added
+- Interactive learning tutorials
+- Lecutres
+- Slideshows
+
 ## Unsolved problems
 1. Break on register page on heroku,
  but a refresh of the page fixes the error
